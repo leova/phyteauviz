@@ -1,0 +1,164 @@
+.navbar-default .navbar-brand {
+      color: #334364;
+      font-size: xx-large;
+}
+
+a {
+  color: #333;
+}
+
+.a_propos a {
+  color: #337ab7;
+}
+
+#go2tabAn {
+  color: #337ab7;
+}
+
+#go2tabAn i {
+  vertical-align: bottom;
+}
+
+#messageFiltrePest {
+  color: #80000C;
+}
+
+.chargement {
+  display: none;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+  background-color: rgba(100,100,100,0.6);
+  text-align: center;
+}
+
+.chargement p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.togglePanelRecapStation {
+  float: right;
+  margin: 3px 3px 0 0;
+}
+
+.togglePanelRecapStation i {
+  vertical-align: middle;
+}
+
+.shiny-options-group {
+  font-size: small;
+}
+
+.pedag {
+  display: none;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+  background-color: rgba(100,100,100,0.6);
+}
+
+.pedag_popup {
+  display:none;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  right: 15%;
+  bottom: 10%;
+  overflow: auto;
+  padding: 25px;
+  background-color: rgb(248,248,248);
+  border: 1px solid rgb(200,200,200);
+  border-radius: 5px;
+}
+
+.outer {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.outer_mesu_par_station {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.outerPedag {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+}
+
+#panelRecapStation {
+  display:none;
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	max-width:70%;
+	max-height:70%;
+	overflow: auto;
+	padding: 5px 20px;
+	background-color: rgba(248,248,248,0.8);
+	border-radius: 5px;
+}
+
+#sliderAnneePanel {
+	padding: 10px;
+	background-color: rgba(248,248,248,0.8);
+	border-radius: 5px;
+}
+
+.close_button {
+  float: right;
+  margin: 3px 3px 0 0;
+  width: 20px;
+}
+
+/* .well est importé de bootstrap */
+.well {
+  overflow: auto;
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.well blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, .15);
+}
+.well-lg {
+  padding: 24px;
+  border-radius: 6px;
+}
+.well-sm {
+  padding: 9px;
+  border-radius: 3px;
+}
