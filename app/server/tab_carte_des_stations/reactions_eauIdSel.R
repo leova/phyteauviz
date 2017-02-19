@@ -28,8 +28,8 @@ observeEvent(rv$eauIdSel, {
     
     # profondeur du pompage
     stationZ <- stations@data%>%
-      filter(cd_station == rv$stationIdSel) %>%
-      select(profondeur_maxi_point)
+      filter(CD_STATION == rv$stationIdSel) %>%
+      select(PROFONDEUR_MAXI_POINT)
     stationZ <- ifelse(is.na(stationZ),
                        "",
                        paste0("Prof.: ", stationZ %>% round, " m"))
@@ -49,9 +49,9 @@ observeEvent(rv$eauIdSel, {
         geom_text(data = data.frame(x = 0.2,
                                     y = eauSolProfil$niveau[
                                       eauSolProfil$cdmassedea == eauIdStation],
-                                    profondeur_maxi_point = stationZ
+                                    PROFONDEUR_MAXI_POINT = stationZ
         ),
-        aes(x = x, y = y, label = profondeur_maxi_point),
+        aes(x = x, y = y, label = PROFONDEUR_MAXI_POINT),
         vjust = 0.5, hjust = 0, colour = "black", fontface = "bold") +
         scale_y_continuous(breaks=unique(eauSolProfil$niveau),
                            limits = c(10.5,-2), trans = "reverse",

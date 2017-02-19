@@ -21,7 +21,7 @@ observeEvent(c(stationsVis(), input$sliderAnnee), {
     # afficher les markers
     addCircleMarkers(data = stationsVis(), 
                      group = "markersStations",
-                     layerId = ~cd_station,
+                     layerId = ~CD_STATION,
                      # stroke
                      radius = ~ifelse(selection == F | selection == "station profil", 5, 8),
                      weight = ~ifelse(selection != F, 3, 1),
@@ -58,7 +58,7 @@ observeEvent(rv$eauGeom, {
     clearGroup("markersStations") %>%
     addCircleMarkers(data = stationsVis(), 
                      group = "markersStations",
-                     layerId = ~cd_station,
+                     layerId = ~CD_STATION,
                      # stroke
                      radius = ~ifelse(selection == F | selection == "station profil", 5, 8),
                      weight = ~ifelse(selection != F, 3, 1),

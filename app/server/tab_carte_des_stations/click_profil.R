@@ -38,13 +38,13 @@ observeEvent(input$profilSousSol_click$y, {
     
     # on sélectionne toutes les stations qui analysent la nouvelle masse d'eau
     rvstations[["selection"]][
-      rvstations$cd_station %in% (
+      rvstations$CD_STATION %in% (
         stations@data%>%
-          filter( (cd_me_v2 == rv$eauIdSel %>% as.character()) |
-                    ((cd_me_niv1_surf == rv$eauIdSel %>% as.character()) &
-                       (cd_me_v2 == "")) ) %>%
-          filter(cd_station != rv$stationIdSel) %>% # mais on ne change pas le témoin de sélection de la station sélectionnée 
-          select(cd_station) %>% unlist)
+          filter( (CD_ME_v2 == rv$eauIdSel %>% as.character()) |
+                    ((CD_ME_niv1_surf == rv$eauIdSel %>% as.character()) &
+                       (CD_ME_v2 == "")) ) %>%
+          filter(CD_STATION != rv$stationIdSel) %>% # mais on ne change pas le témoin de sélection de la station sélectionnée 
+          select(CD_STATION) %>% unlist)
       ] <- "eau"
     rv$stations <- rvstations
     

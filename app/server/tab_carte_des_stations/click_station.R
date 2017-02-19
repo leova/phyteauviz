@@ -3,8 +3,8 @@ observeEvent(input$map_marker_click,{
   
   rvstations <- rv$stations
   
-  if((rv$stations[["selection"]][rv$stations$cd_station == clickStation$id] == "click station") | 
-     rv$stations[["selection"]][rv$stations$cd_station == clickStation$id] == "station profil" ){
+  if((rv$stations[["selection"]][rv$stations$CD_STATION == clickStation$id] == "click station") | 
+     rv$stations[["selection"]][rv$stations$CD_STATION == clickStation$id] == "station profil" ){
     #### IF: station déjà sélectionnée ####
     
     ## masque du panneau des infos récapitulatives sur la station
@@ -46,13 +46,13 @@ observeEvent(input$map_marker_click,{
     # - communne, dep
     # - masse d'eau analysée
 
-    selStation <- stations@data%>% filter(cd_station == rv$stationIdSel)
+    selStation <- stations@data%>% filter(CD_STATION == rv$stationIdSel)
 
     # id de la masse d'eau analysée par la station
     # (CD_ME_v2 ou CD_ME_niv1_surf si CD_ME_v2 non renseignée)
-    rv$eauIdStation <- ifelse(selStation$cd_me_v2 == "",
-                              selStation$cd_me_niv1_surf %>% as.character(),
-                              selStation$cd_me_v2 %>% as.character())
+    rv$eauIdStation <- ifelse(selStation$CD_ME_v2 == "",
+                              selStation$CD_ME_niv1_surf %>% as.character(),
+                              selStation$CD_ME_v2 %>% as.character())
 
     ## la masse d'eau sélectionnée devient celle analysée par la station
     rv$eauIdSel <- rv$eauIdStation
@@ -71,19 +71,19 @@ observeEvent(input$map_marker_click,{
     rvstations[["selection"]][
       rvstations@data %>% filter( 
         # stations effectuant des analyses dans la masse d'eau sélectionnée
-        # (renseignée dans le champs cd_me_v2)
-        (cd_me_v2 == rv$eauIdSel %>% as.character()) |
+        # (renseignée dans le champs CD_ME_v2)
+        (CD_ME_v2 == rv$eauIdSel %>% as.character()) |
           # ou
-          # stations pour lesquelles cd_me_v2 n'est pas renseigné
-          # mais dont cd_me_niv1_surf est celui de la couche analysée
-          ((cd_me_niv1_surf == rv$eauIdSel %>% as.character()) &
-             (cd_me_v2 == ""))
+          # stations pour lesquelles CD_ME_v2 n'est pas renseigné
+          # mais dont CD_ME_niv1_surf est celui de la couche analysée
+          ((CD_ME_niv1_surf == rv$eauIdSel %>% as.character()) &
+             (CD_ME_v2 == ""))
       ) %>% 
         select(index) %>% unlist
       ] <- "eau"
     
     # "click station" = témoin de sélection de la station sélectionnée
-    rvstations[["selection"]][rvstations$cd_station == clickStation$id] <- "click station"
+    rvstations[["selection"]][rvstations$CD_STATION == clickStation$id] <- "click station"
     
     
     #### PROFIL EAU ####

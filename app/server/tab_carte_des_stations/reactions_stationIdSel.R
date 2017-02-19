@@ -6,7 +6,7 @@ observeEvent(rv$stationIdSel, {
     
     #### NB PRELEVEMENTS PAR AN ####
     
-    nbPrelAnDf <- stations$nbprel[stations$cd_station == rv$stationIdSel][[1]]
+    nbPrelAnDf <- stations$nbprel[stations$CD_STATION == rv$stationIdSel][[1]]
     
     recapStationNbPrelAn <- ggplot(data = nbPrelAnDf, 
                                    aes(x = variable, y = value)) +
@@ -56,7 +56,6 @@ observeEvent(rv$stationIdSel, {
         rv$anStation %>%
           group_by(CD_PARAMETRE) %>%
           do(mylms = lm(MA_MOY ~ ANNEE, data = .)) %>%
-          # mutate(EVOL_STATION = coef(mylms)[2]) %>%
           mutate(EVOL_STATION = ifelse(is.na(coef(mylms)[2]), 0,  coef(mylms)[2])) %>%
           select(-mylms),
         by = "CD_PARAMETRE"
@@ -108,13 +107,13 @@ observeEvent(rv$stationIdSel, {
     
     #### COMMUNE ####
     commune <- stations@data%>%
-      filter(cd_station == rv$stationIdSel) %>%
-      select(nom_com, num_dep)
+      filter(CD_STATION == rv$stationIdSel) %>%
+      select(NOM_COM, NUM_DEP)
     
     if(dim(rv$anStation)[1] > 0){ 
       ## on va plus loin dans le détail des mesures réalisées 
       # dans la station que si il y en a, cf cas de VOGUE (07)
-      # stations@data %>% filter(cd_station == "08656X0005/S")
+      # stations@data %>% filter(CD_STATION == "08656X0005/S")
       # an %>% filter(CD_STATION == "08656X0005/S")
       
       #### TYPES D'ANALYSE ####
@@ -186,8 +185,8 @@ observeEvent(rv$stationIdSel, {
           h4("Station"),
           tags$p(style='margin-top:10px',
                  tags$em("Commune :"),
-                 paste(commune$nom_com[1], " (",
-                       formatC(commune$num_dep[1] %>% as.character() %>% as.numeric,
+                 paste(commune$NOM_COM[1], " (",
+                       formatC(commune$NUM_DEP[1] %>% as.character() %>% as.numeric,
                                width = 2, format = "g", flag = "0"),
                        ")", sep=''), tags$br(),
                  tags$em("Campagnes de mesures :"), tags$br(),

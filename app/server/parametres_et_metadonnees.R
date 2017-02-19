@@ -157,8 +157,6 @@ paramPestFilt <- list(
 choix_selectize <- paramPestFilt$table$indic %>% as.character()
 names(choix_selectize) <- paramPestFilt$table$indicateur %>% as.character()
 
-# nombre initial de pesticides sélectionnés
-nSelPest <- 4
 # Nombre max de pesticides visualisables
 nMaxPest <- 10
 pestSelValeurs <- paste("pest", 1:nMaxPest)
