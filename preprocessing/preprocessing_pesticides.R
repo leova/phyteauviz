@@ -1,15 +1,11 @@
-library(dplyr)
-
-pest <- read.csv('<chemin vers pesticides.csv>', sep = ";", dec = ",", encoding = 'latin1')
-an <- read.csv('<chemin vers an.csv>',
-               encoding = 'latin1', dec='.')
-siris <- read.csv('<chemin vers siris_2012_curation.csv>', sep = ',', dec = ',', na.strings = "")
+pest <- read.csv('pesticides.csv', sep = ";", dec = ",", encoding = 'latin1')
+siris <- read.csv('siris_2012.csv', sep = ',', dec = ',', na.strings = "") # http://www.ineris.fr/siris-pesticides/siris_base_xls/siris_2012.xls
 
 ### pesticides.csv: Enlever doublons (CD_PARAMETRE)
 pest %>% filter(duplicated(CD_PARAMETRE))
 pest %>% filter(CD_PARAMETRE %in% c(1141, 1208, 1177))
 ## 1141: 2,4-D
-# on enlève 2,4-D methyl ester, on garde 2,4-D
+# on enlève 2,4-D methyl ester
 pest <- pest %>% filter(LB_PARAMETRE != "2,4-D methyl ester")
 ## 1208: Isoproturon
 # Isoproturon desmethyl est un métabolite de l'Isoproturon mais a le même CD_PARAMETRE
@@ -49,4 +45,4 @@ pestSirisMoyNat$KOC[is.na(pestSirisMoyNat$KOC)] <- 1e10
 # "Mobilité: DT50 champs" = 9999
 pestSirisMoyNat$DT50Champs[is.na(pestSirisMoyNat$DT50Champs)] <- 9999
 
-write.csv(pestSirisMoyNat, "pesticidesToxMob.csv", row.names = F)
+pest <- pestSirisMoyNat %>% select(-c(NOM_PARAM2, CODE_CAS, FORMULEB, NOM_SIRIS))
