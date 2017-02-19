@@ -47,12 +47,7 @@ install.packages('RColorBrewer')
 
 ## Pré-traîtement des données
 
-1. générer `an.csv` à partir du script `preprocessing/preprocessing_an.R`
-2. générer `pesticidesToxMob.csv` à partir du script `preprocessing/preprocessing_pesticides.R`
-3. générer `stations.sqlite` à partir du script `preprocessing/preprocessing_station_spatial.R`
-4. générer `masses_eau_simplifiees.sqlite` et `masses_eau_union.sqlite` à partir du script `preprocessing/preprocessing_masses_eau` (au préalable, générer `PolygMasseDEauSouterraineS400.shp` à partir d'`ogr2ogr`: `ogr2ogr -simplify 400 PolygMasseDEauSouterraineS400.shp PolygMasseDEauSouterraine.shp`)
-
-NB `an.csv`, `pesticidesToxMob.csv`, `stations.sqlite`, `masses_eau_simplifiees.sqlite` et `masses_eau_union.sqlite` doivent être placés dans `app/data/`
+*Optionnel*: Génerer `data_phyteauviz.RData` contenant les jeux de données. Sinon, utiliser `app/data/data_phyteauviz.RData` [(lien)](https://github.com/leova/phyteauviz/blob/master/app/data/data_phyteauviz.RData)
 
 ## Lancement de l'application en local
 
