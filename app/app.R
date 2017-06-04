@@ -18,7 +18,6 @@ source(file.path("server", "fonctions.R"))
 #### INTERFACE UTILISATEUR ####
 ui <- navbarPage(
   title = "Phyt'eau viz", id = "navBar",
-  
   # tabPanels
   source(file.path("ui", "tabPanel_carte_des_stations.R"),  local = TRUE)$value,
   source(file.path("ui", "tabPanel_mesures_par_station.R"),  local = TRUE)$value,
@@ -36,6 +35,16 @@ ui <- navbarPage(
 #### SERVER ####
 
 server <- function(input, output, session) {
+  
+  #### Masquer le disclaimer ####
+  onclick("outerDisclaimer", {
+    hideElement("outerDisclaimer")  
+  })
+  
+  #### aller du disclaimer à "à propos" ####
+  observeEvent(input$switchVersAPropos,{
+    updateNavbarPage(session = session, inputId = "navBar", selected = "A propos")
+  })
   
   #### reactive_values.R ####
   # rv <- reactiveValues()

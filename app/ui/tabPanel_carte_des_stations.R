@@ -55,5 +55,19 @@ tabPanel("Carte des stations", value = "carte", useShinyjs(),
          ),
          div(class="chargement", 
              p(icon("spinner", "fa-pulse fa-3x fa-fw"))
+         ),
+         div(id="outerDisclaimer",
+             div(class="disclaimer",
+                 h1(style='color:#334364;', strong('Phyt\'eau Viz')),
+                 h2('Outil de ', strong('visualisation'),' des données sur les ',strong('pesticides dans les eaux souterraines')),
+                 p(style = 'margin-top: 1cm',
+                   'Cet outil a été développé dans le cadre d\'un ',
+                   strong(a('concours', target="_blank", href = 'http://www.developpement-durable.gouv.fr/concours-data-visualisation-sur-pesticides-dans-eaux-souterraines')),
+                   'et est un ',em(style='text-decoration:underline','site expérimental'),'.
+                 Il est possible que vous rencontriez des bugs et/ou des problèmes d\'accès serveurs. Ce prototype a été testé avec Mozilla Firefox.'),
+                 p('Nous prévoyons une phase de développement pour corriger les problèmes de navigation et la rendre plus intuitive. 
+                  Aussi, ', actionLink("switchVersAPropos", strong('vos retours nous intéressent'))),
+                 p(style = 'margin-top: 1cm; text-align:center', strong('Bonne navigation !'))
+             )
          )
 )
